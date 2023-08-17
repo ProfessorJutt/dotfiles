@@ -10,12 +10,22 @@ return {
     },
   },
 
+  {
+    "christoomey/vim-tmux-navigator",
+    keys = {
+      { "<C-h>", "<CMD> TmuxNavigateLeft<CR>", desc = "Tmux left" },
+      { "<C-l>", "<CMD> TmuxNavigateRight<CR>", desc = "Tmux right" },
+      { "<C-j>", "<CMD> TmuxNavigateDown<CR>", desc = "Tmux down" },
+      { "<C-k>", "<CMD> TmuxNavigateUp<CR>", desc = "Tmux up" },
+    },
+  },
+
   { import = "lazyvim.plugins.extras.lang.typescript" },
 
   {
     "nvim-treesitter/nvim-treesitter",
     keys = {
-      { "<C-Space>", desc = "Increment Selection." },
+      { "<leader><leader>", desc = "Increment Selection." },
       { "<BS>", desc = "Decrement Selection." },
     },
     opts = function(_, opts)
@@ -45,16 +55,6 @@ return {
   { import = "lazyvim.plugins.extras.lang.terraform" },
   { import = "lazyvim.plugins.extras.lang.typescript" },
   { import = "lazyvim.plugins.extras.lang.yaml" },
-  --{ import = "lazyvim.plugins.extras.ui.mini-starter" },
-
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = {
-  --     servers = {
-  --
-  --     }
-  --   }
-  -- }
 
   {
     "goolord/alpha-nvim",
@@ -88,7 +88,7 @@ return {
         desc = "Harpoon Mark",
       },
       {
-        "<C-e>",
+        "<A-h>",
         mode = "n",
         function()
           require("harpoon.ui").toggle_quick_menu()
@@ -96,15 +96,14 @@ return {
         desc = "Harpoon UI",
       },
       {
-        "<C-j>",
-        mode = "n",
+        "<A-j>",
         function()
           require("harpoon.ui").nav_file(1)
         end,
         desc = "Harpoon 1",
       },
       {
-        "<C-k>",
+        "<A-k>",
         mode = "n",
         function()
           require("harpoon.ui").nav_file(2)
@@ -112,7 +111,7 @@ return {
         desc = "Harpoon 2",
       },
       {
-        "<C-l>",
+        "<A-l>",
         mode = "n",
         function()
           require("harpoon.ui").nav_file(3)
@@ -120,7 +119,7 @@ return {
         desc = "Harpoon 3",
       },
       {
-        "<C-;>",
+        "<A-;>",
         mode = "n",
         function()
           require("harpoon.ui").nav_file(4)
@@ -130,6 +129,13 @@ return {
     },
     config = function() end,
   },
+  {
+    "mbbill/undotree",
+    keys = {
+      { "<leader>ut", vim.cmd.UndotreeToggle, mode = "n", desc = "Undo Tree" },
+    },
+  },
+
   {
     "numToStr/Comment.nvim",
     keys = {
