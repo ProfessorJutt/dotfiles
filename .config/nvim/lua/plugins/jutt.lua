@@ -25,7 +25,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     keys = {
-      { "<leader><leader>", desc = "Increment Selection." },
+      { "<C-Space>", desc = "Increment Selection." },
       { "<BS>", desc = "Decrement Selection." },
     },
     opts = function(_, opts)
