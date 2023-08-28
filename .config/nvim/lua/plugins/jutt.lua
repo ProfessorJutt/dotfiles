@@ -1,22 +1,12 @@
 return {
-  {
-    "Mofiqul/vscode.nvim",
-  },
+  -- {
+  --   "Mofiqul/vscode.nvim",
+  -- },
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "vscode",
-    },
-  },
-
-  {
-    "christoomey/vim-tmux-navigator",
-    keys = {
-      { "<C-h>", "<CMD> TmuxNavigateLeft<CR>", desc = "Tmux left" },
-      { "<C-l>", "<CMD> TmuxNavigateRight<CR>", desc = "Tmux right" },
-      { "<C-j>", "<CMD> TmuxNavigateDown<CR>", desc = "Tmux down" },
-      { "<C-k>", "<CMD> TmuxNavigateUp<CR>", desc = "Tmux up" },
+      colorscheme = "tokyonight",
     },
   },
 
@@ -40,11 +30,14 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = {
-      { "<C-n>", "<CMD>Neotree toggle<CR>", desc = "NeoTree" },
-      { "<leader>e", "<CMD>Neotree focus<CR>", desc = "NeoTree" },
+      { "<leader>e", "<CMD>Neotree toggle<CR>", desc = "NeoTree" },
     },
   },
-
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   opts = function (_, opts)
+  --   end,
+  -- },
   { import = "lazyvim.plugins.extras.lang.json" },
   { import = "lazyvim.plugins.extras.lang.tailwind" },
   { import = "lazyvim.plugins.extras.lang.python" },
@@ -61,17 +54,33 @@ return {
     opts = function()
       local dashboard = require("alpha.themes.dashboard")
       local logo = [[
-         .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
-        | .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
-        | |   ______     | || |      __      | || |   _____      | || |  ________    | || |     _____    | || |  _________   | |
-        | |  |_   _ \    | || |     /  \     | || |  |_   _|     | || | |_   ___ `.  | || |    |_   _|   | || | |_   ___  |  | |
-        | |    | |_) |   | || |    / /\ \    | || |    | |       | || |   | |   `. \ | || |      | |     | || |   | |_  \_|  | |
-        | |    |  __'.   | || |   / ____ \   | || |    | |   _   | || |   | |    | | | || |      | |     | || |   |  _|  _   | |
-        | |   _| |__) |  | || | _/ /    \ \_ | || |   _| |__/ |  | || |  _| |___.' / | || |     _| |_    | || |  _| |___/ |  | |
-        | |  |_______/   | || ||____|  |____|| || |  |________|  | || | |________.'  | || |    |_____|   | || | |_________|  | |
-        | |              | || |              | || |              | || |              | || |              | || |              | |
-        | '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
-         '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+                  ,.,_,.
+              ,.''     \
+              '          '
+            /'           |
+          /_-            |
+        .'__      _-_    :
+      /__        _-_    :
+      ,_,._     ,_,._~   |___
+    .'-_ '.'.-.'-_ '.'._-^_  '.
+    |  -_ |.| |  -_ | | / |
+    ',_,' /  _',_,'_'  /|/
+      .  .|    ',. ._-^  |'
+      ' '.   .'  '.    '/|
+    ,'    '''    __'.  \/ -_
+    '_=-..--..--'^  '', : \. '.
+        ',    .  ,   ,' \/ |  |-_
+        / ',.. '. '. ,../  |  |  '-_
+      ,'  . \'.:.''''    .''. '.    \.
+    ,'    | |\       ,../   |  |      ',
+    |     ' ''.,.''''       ', ',       |
+
+██████╗░░█████╗░██╗░░░░░██████╗░██╗███████╗
+██╔══██╗██╔══██╗██║░░░░░██╔══██╗██║██╔════╝
+██████╦╝███████║██║░░░░░██║░░██║██║█████╗░░
+██╔══██╗██╔══██║██║░░░░░██║░░██║██║██╔══╝░░
+██████╦╝██║░░██║███████╗██████╔╝██║███████╗
+╚═════╝░╚═╝░░╚═╝╚══════╝╚═════╝░╚═╝╚══════╝
       ]]
       dashboard.section.header.val = vim.split(logo, "\n")
     end,
@@ -88,7 +97,7 @@ return {
         desc = "Harpoon Mark",
       },
       {
-        "<A-h>",
+        "<C-e>",
         mode = "n",
         function()
           require("harpoon.ui").toggle_quick_menu()
@@ -96,14 +105,14 @@ return {
         desc = "Harpoon UI",
       },
       {
-        "<A-j>",
+        "<C-u>",
         function()
           require("harpoon.ui").nav_file(1)
         end,
         desc = "Harpoon 1",
       },
       {
-        "<A-k>",
+        "<C-i>",
         mode = "n",
         function()
           require("harpoon.ui").nav_file(2)
@@ -111,7 +120,7 @@ return {
         desc = "Harpoon 2",
       },
       {
-        "<A-l>",
+        "<C-o>",
         mode = "n",
         function()
           require("harpoon.ui").nav_file(3)
@@ -119,7 +128,7 @@ return {
         desc = "Harpoon 3",
       },
       {
-        "<A-;>",
+        "<C-p>",
         mode = "n",
         function()
           require("harpoon.ui").nav_file(4)

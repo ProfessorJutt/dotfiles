@@ -22,8 +22,8 @@ require("lazy").setup({
     {
       import = "lazyvim.plugins.extras.coding.copilot",
       opts = {
-        suggestion = { enabled = true },
-        panel = { enabled = true },
+        suggestion = { enabled = false },
+        panel = { enabled = false },
       },
     },
     -- import/override with your plugins
