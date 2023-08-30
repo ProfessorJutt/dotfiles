@@ -19,13 +19,13 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     --{ import = "lazyvim.plugins.extras.ui.edgy" },
-    {
-      import = "lazyvim.plugins.extras.coding.copilot",
-      opts = {
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      },
-    },
+    -- {
+    --   import = "lazyvim.plugins.extras.coding.copilot",
+    --   opts = {
+    --     suggestion = { enabled = false },
+    --     panel = { enabled = false },
+    --   },
+    -- },
     -- import/override with your plugins
     { import = "plugins" },
   },

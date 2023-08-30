@@ -1,16 +1,17 @@
 return {
-  -- {
-  --   "Mofiqul/vscode.nvim",
-  -- },
-  -- Configure LazyVim to load gruvbox
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      style = "storm",
+    },
+  },
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "tokyonight",
     },
   },
-
-  { import = "lazyvim.plugins.extras.lang.typescript" },
 
   {
     "nvim-treesitter/nvim-treesitter",
@@ -33,11 +34,7 @@ return {
       { "<leader>e", "<CMD>Neotree toggle<CR>", desc = "NeoTree" },
     },
   },
-  -- {
-  --   "nvim-telescope/telescope.nvim",
-  --   opts = function (_, opts)
-  --   end,
-  -- },
+
   { import = "lazyvim.plugins.extras.lang.json" },
   { import = "lazyvim.plugins.extras.lang.tailwind" },
   { import = "lazyvim.plugins.extras.lang.python" },
@@ -48,6 +45,7 @@ return {
   { import = "lazyvim.plugins.extras.lang.terraform" },
   { import = "lazyvim.plugins.extras.lang.typescript" },
   { import = "lazyvim.plugins.extras.lang.yaml" },
+  { import = "lazyvim.plugins.extras.lang.typescript" },
 
   {
     "goolord/alpha-nvim",
