@@ -36,8 +36,7 @@ opt.clipboard:append("unnamedplus")
 opt.splitright = true
 opt.splitbelow = true
 
--- turn off swapfile
-opt.swapfile = false
+opt.swapfile = true
 
 -- disable mode
 opt.showmode = false
@@ -45,6 +44,14 @@ opt.showmode = false
 -- stuff from lazy
 opt.grepprg = "rg --vimgrep"
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
+opt.shiftround = true
+opt.shiftwidth = 2
+opt.undofile = true
+opt.undolevels = 10000
+opt.updatetime = 200 -- Save swap file and trigger CursorHold
+opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
+opt.wildmode = "longest:full,full"
+opt.expandtab = true
 
 -- Sppppeeeeeddd
 vim.g.skip_ts_context_commentstring_module = true
