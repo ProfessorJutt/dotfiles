@@ -33,5 +33,5 @@ keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease wi
 keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- better indenting
-keymap.set("v", "<", "<gv")
-keymap.set("v", ">", ">gv")
+keymap.set("v", "<S-Tab>", "<gv")
+keymap.set("v", "<Tab>", ">gv")

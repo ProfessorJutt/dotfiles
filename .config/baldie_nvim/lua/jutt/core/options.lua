@@ -39,7 +39,7 @@ opt.splitbelow = true
 opt.swapfile = true
 
 -- disable mode
-opt.showmode = false
+-- opt.showmode = false
 
 -- stuff from lazy
 opt.grepprg = "rg --vimgrep"
@@ -55,3 +55,5 @@ opt.expandtab = true
 
 -- Sppppeeeeeddd
 vim.g.skip_ts_context_commentstring_module = true
+
+vim.g.codeium_manual = true
