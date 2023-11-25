@@ -1,9 +1,11 @@
 return {
 	{
-		"bluz71/vim-nightfly-guicolors",
+		"rmehri01/onenord.nvim",
+		name = "onenord",
+		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme nightfly]])
+			vim.cmd([[colorscheme onenord]])
 		end,
 	},
 	{
