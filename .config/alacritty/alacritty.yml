@@ -32,7 +32,7 @@ window:
   ## full
   ## none
   decorations: full
-  opacity: 0.88
+  opacity: 0.95
 
 colors:
   # Default colors
@@ -107,7 +107,7 @@ key_bindings:
   - { key: End, chars: "\x1b[F", mode: ~AppCursor }
   - { key: Equals, mods: Command, action: IncreaseFontSize }
   - { key: Minus, mods: Command, action: DecreaseFontSize }
-  - { key: Minus, mods: Command|Shift, action: ResetFontSize }
+  - { key: Minus, mods: Command|Shift, action: IncreaseFontSize }
   - { key: PageUp, mods: Shift, chars: "\x1b[5;2~" }
   - { key: PageUp, mods: Control, chars: "\x1b[5;5~" }
   - { key: PageUp, chars: "\x1b[5~" }
