@@ -1,0 +1,32 @@
+nnoremap <SPACE> <Nop>
+
+let mapleader = "\<Space>"
+
+set NERDTree
+set incsearch
+set commentary
+set number relativenumber
+set smartcase
+set wrapscan
+set gdefault
+set history=10000
+set scrolloff=5 sidescrolloff=10
+set clipboard=unnamedplus,unnamed,ideaput
+set multiple-cursors
+set surround
+set ideajoin
+
+map <leader>fg <Action>(FindInPath)
+map <leader>rf <Action>(ReformatCode)
+map <leader>rr <Action>(Run)
+map <leader>ff <Action>(Find)
+map <leader>fp <Action>(GotoAction)
+map <leader>fe <Action>(GotoNextError)
+map <leader>si <Action>(QuickJavaDoc)
+map <leader>se <Action>(ShowErrorDescription)
+map zc <Action>(CollapseRegionRecursively)
+map zo <Action>(ExpandRegionRecursively)
+
+map <leader><leader> <Action>(GotoFile)
+map <leader>e :NERDTreeToggle<CR>
+
