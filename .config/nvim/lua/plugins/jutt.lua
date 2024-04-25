@@ -63,74 +63,74 @@ return {
     "goolord/alpha-nvim",
     opts = function()
       local dashboard = require("alpha.themes.dashboard")
-      --       local logo = [[
-      --                   ,.,_,.
-      --               ,.''     \
-      --               '          '
-      --             /'           |
-      --           /_-            |
-      --         .'__      _-_    :
-      --       /__        _-_    :
-      --       ,_,._     ,_,._~   |___
-      --     .'-_ '.'.-.'-_ '.'._-^_  '.
-      --     |  -_ |.| |  -_ | | / |
-      --     ',_,' /  _',_,'_'  /|/
-      --       .  .|    ',. ._-^  |'
-      --       ' '.   .'  '.    '/|
-      --     ,'    '''    __'.  \/ -_
-      --     '_=-..--..--'^  '', : \. '.
-      --         ',    .  ,   ,' \/ |  |-_
-      --         / ',.. '. '. ,../  |  |  '-_
-      --       ,'  . \'.:.''''    .''. '.    \.
-      --     ,'    | |\       ,../   |  |      ',
-      --     |     ' ''.,.''''       ', ',       |
-      --
-      -- ██████╗░░█████╗░██╗░░░░░██████╗░██╗███████╗
-      -- ██╔══██╗██╔══██╗██║░░░░░██╔══██╗██║██╔════╝
-      -- ██████╦╝███████║██║░░░░░██║░░██║██║█████╗░░
-      -- ██╔══██╗██╔══██║██║░░░░░██║░░██║██║██╔══╝░░
-      -- ██████╦╝██║░░██║███████╗██████╔╝██║███████╗
-      -- ╚═════╝░╚═╝░░╚═╝╚══════╝╚═════╝░╚═╝╚══════╝
-      --       ]]
       local logo = [[
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWN0k0NWMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMWWMMMMMMMMNKkxdooododxk00kdoddookXWMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMWWWWWWWNkolccllllllll;.';''cxKWWWWMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMWWW0oc:ok0OOOOOOOOxclxkkdlccld0NWWWMMWMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMWWWXo;cxOOOOO0OOOOOOOOOOOOO00OdlccdKWWWMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMWWWO::odllcccccokOOOOOOOOOd::cccc:;..cOWWWMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMWx..::clllodoodkOOOOOOOOOkdoddddlll:,,oKWMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMWk,;dxdlcc::cokOOOOOO0000O00koccccldkOk:;0WMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMO;lOd;.';:cdo,ckOOOOO000000x:,cc;:c;;dOk:;OMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMK::kk;      'Ox,lOOOOkkO000O:'c,   ...'xOk::KMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMNl,x0d.      .dd,lOO0d,'o000k'';      ..l0Oo,xWMMMMMMMMMMMM
-MMMMMMMMMMMMMMWk,lOOd'',,;;:oo,cO00k,;;;O000c'cc;',:ol,oOOx,cNMMMMMMMMMMMM
-MMMMMMMMMMMMWWWl,xOOk:',;;c:;;okO00l,dl,x000kl,:c:cc::okOOk,;XWWMMMMMMMMMM
-MMMMMMMMMMMMMMXc;kOOOOxolllldkOOOd:,:Ok;:O00O0koc:lodOOOOOk,:NWMMMMMMMMMMM
-MMMMMMMMMMMMMMNc;kOOOOOOOOOOOOOOd,.:OO0o'l0OOO00O00OOOOOO0k,oWWWMMMMMMMMMM
-MMMMMMMMMMMMMMWd,dOOOOOOOOOOOOOO:;dkOO0Oc,d0OOOOOOOOOOOOOOd,dWMMMMMMMMMMMM
-MMMMMMMMMMMMMMMK;:kOOOOOOOOOOOOk;:kOOOO0d,l0OOOOOOOOOOOOOk::KWMMMMMMMMMMMM
-MMMMMMMMMMMMMWWWx,oOOOOOOOOOOOOk:;okOOOOd,l0OOOOOOOOOOO0Oc,kWWWMMMMMMMMMMM
-MMMMMMMMMMMMMMWWNc,xOOOOOOOOOOOOx;';clc::lxOOOOOOOOOOOOOl,dWMWMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMM0::xOOOOOOOOOOOOkxdlcldkOOOOOOOOOOOOOkl,xNMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMWXl;xOOOOOOOOOOOOkOOOOOOOOOOOkxxxkOOx::OWWMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMWWXd:oxkOocodddxxxkkxxxddolcc;;:okkc;dXWMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMWWWXOdol::;,,;;;;;;;;;;,;,,:ldkkl;c0WWWWMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMWWMMWXOoc:clc::::::::cclodkOxl:cONWWWWWMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMWWWWXd:lkkkkkkkkkkOOOOkl;o0NWWWWWWWMMMMMMMMMMMMMMMM
-MMMMMMMMMMMWWWMWXOxxddxddxk0Kk;:kOOOOOOOOOOOk::0WXK0Okddxx0XWWNKXNWWWMMMMM
-MMMMMWWWNOoccloc;,'''',,,,,,;c;.lOOOOOOOOOOk:.:l::;,,,,,,,,;cc;,,;lKWWMMMM
-MMMMMWNk:'';'..,:::::::::::::;'.'okOOOOOOOOl..,;::ccc::::cc;..;::;':KWWMMM
-MMMMWXl.,;;;'.,:::::::::::::cc:;'',;ldddoo:',c:ccccc::c::c::'':c:::.cXWMWM
+                        ,.,_,.
+                    ,.''     \
+                    '          '
+                  /'           |
+                /_-            |
+              .'__      _-_    :
+            /__        _-_    :
+            ,_,._     ,_,._~   |___
+          .'-_ '.'.-.'-_ '.'._-^_  '.
+          |  -_ |.| |  -_ | | / |
+          ',_,' /  _',_,'_'  /|/
+            .  .|    ',. ._-^  |'
+            ' '.   .'  '.    '/|
+          ,'    '''    __'.  \/ -_
+          '_=-..--..--'^  '', : \. '.
+              ',    .  ,   ,' \/ |  |-_
+              / ',.. '. '. ,../  |  |  '-_
+            ,'  . \'.:.''''    .''. '.    \.
+          ,'    | |\       ,../   |  |      ',
+          |     ' ''.,.''''       ', ',       |
 
-                  ██████╗░░█████╗░██╗░░░░░██████╗░██╗███████╗
-                  ██╔══██╗██╔══██╗██║░░░░░██╔══██╗██║██╔════╝
-                  ██████╦╝███████║██║░░░░░██║░░██║██║█████╗░░
-                  ██╔══██╗██╔══██║██║░░░░░██║░░██║██║██╔══╝░░
-                  ██████╦╝██║░░██║███████╗██████╔╝██║███████╗
-                  ╚═════╝░╚═╝░░╚═╝╚══════╝╚═════╝░╚═╝╚══════╝
-      ]]
+      ██████╗░░█████╗░██╗░░░░░██████╗░██╗███████╗
+      ██╔══██╗██╔══██╗██║░░░░░██╔══██╗██║██╔════╝
+      ██████╦╝███████║██║░░░░░██║░░██║██║█████╗░░
+      ██╔══██╗██╔══██║██║░░░░░██║░░██║██║██╔══╝░░
+      ██████╦╝██║░░██║███████╗██████╔╝██║███████╗
+      ╚═════╝░╚═╝░░╚═╝╚══════╝╚═════╝░╚═╝╚══════╝
+            ]]
+      --       local logo = [[
+      -- MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWMMMMMMMMMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWN0k0NWMMMMMMMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMMWWMMMMMMMMNKkxdooododxk00kdoddookXWMMMMMMMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMMWWWWWWWNkolccllllllll;.';''cxKWWWWMMMMMMMMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMMMMWWW0oc:ok0OOOOOOOOxclxkkdlccld0NWWWMMWMMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMMWWWXo;cxOOOOO0OOOOOOOOOOOOO00OdlccdKWWWMMMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMWWWO::odllcccccokOOOOOOOOOd::cccc:;..cOWWWMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMMWx..::clllodoodkOOOOOOOOOkdoddddlll:,,oKWMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMWk,;dxdlcc::cokOOOOOO0000O00koccccldkOk:;0WMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMO;lOd;.';:cdo,ckOOOOO000000x:,cc;:c;;dOk:;OMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMK::kk;      'Ox,lOOOOkkO000O:'c,   ...'xOk::KMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMNl,x0d.      .dd,lOO0d,'o000k'';      ..l0Oo,xWMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMWk,lOOd'',,;;:oo,cO00k,;;;O000c'cc;',:ol,oOOx,cNMMMMMMMMMMMM
+      -- MMMMMMMMMMMMWWWl,xOOk:',;;c:;;okO00l,dl,x000kl,:c:cc::okOOk,;XWWMMMMMMMMMM
+      -- MMMMMMMMMMMMMMXc;kOOOOxolllldkOOOd:,:Ok;:O00O0koc:lodOOOOOk,:NWMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMNc;kOOOOOOOOOOOOOOd,.:OO0o'l0OOO00O00OOOOOO0k,oWWWMMMMMMMMMM
+      -- MMMMMMMMMMMMMMWd,dOOOOOOOOOOOOOO:;dkOO0Oc,d0OOOOOOOOOOOOOOd,dWMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMK;:kOOOOOOOOOOOOk;:kOOOO0d,l0OOOOOOOOOOOOOk::KWMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMWWWx,oOOOOOOOOOOOOk:;okOOOOd,l0OOOOOOOOOOO0Oc,kWWWMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMWWNc,xOOOOOOOOOOOOx;';clc::lxOOOOOOOOOOOOOl,dWMWMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMM0::xOOOOOOOOOOOOkxdlcldkOOOOOOOOOOOOOkl,xNMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMWXl;xOOOOOOOOOOOOkOOOOOOOOOOOkxxxkOOx::OWWMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMWWXd:oxkOocodddxxxkkxxxddolcc;;:okkc;dXWMMMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMMWWWXOdol::;,,;;;;;;;;;;,;,,:ldkkl;c0WWWWMMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMMMWWMMWXOoc:clc::::::::cclodkOxl:cONWWWWWMMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMMMMMMMMMMMMMWWWWXd:lkkkkkkkkkkOOOOkl;o0NWWWWWWWMMMMMMMMMMMMMMMM
+      -- MMMMMMMMMMMWWWMWXOxxddxddxk0Kk;:kOOOOOOOOOOOk::0WXK0Okddxx0XWWNKXNWWWMMMMM
+      -- MMMMMWWWNOoccloc;,'''',,,,,,;c;.lOOOOOOOOOOk:.:l::;,,,,,,,,;cc;,,;lKWWMMMM
+      -- MMMMMWNk:'';'..,:::::::::::::;'.'okOOOOOOOOl..,;::ccc::::cc;..;::;':KWWMMM
+      -- MMMMWXl.,;;;'.,:::::::::::::cc:;'',;ldddoo:',c:ccccc::c::c::'':c:::.cXWMWM
+      --
+      --                   ██████╗░░█████╗░██╗░░░░░██████╗░██╗███████╗
+      --                   ██╔══██╗██╔══██╗██║░░░░░██╔══██╗██║██╔════╝
+      --                   ██████╦╝███████║██║░░░░░██║░░██║██║█████╗░░
+      --                   ██╔══██╗██╔══██║██║░░░░░██║░░██║██║██╔══╝░░
+      --                   ██████╦╝██║░░██║███████╗██████╔╝██║███████╗
+      --                   ╚═════╝░╚═╝░░╚═╝╚══════╝╚═════╝░╚═╝╚══════╝
+      --       ]]
       dashboard.section.header.val = vim.split(logo, "\n")
     end,
   },
