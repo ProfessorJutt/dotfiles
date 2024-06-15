@@ -23,6 +23,7 @@ let g:highlightedyank_highlight_color = "rgba(50, 200, 190, 155)"
 nmap <leader>fg <Action>(FindInPath)
 nmap <leader>rf <Action>(ReformatCode)
 nmap <leader>rr <Action>(Run)
+nmap <leader>rd <Action>(Debug)
 nmap <leader>ff <Action>(Find)
 nmap <leader>fp <Action>(GotoAction)
 nmap <leader>fe <Action>(GotoNextError)
