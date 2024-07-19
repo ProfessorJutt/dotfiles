@@ -1,13 +1,10 @@
 return {
 	"folke/which-key.nvim",
-	event = "VeryLazy",
-	init = function()
-		vim.o.timeout = true
-		vim.o.timeoutlen = 300
+	event = "VimEnter",
+	config = function()
+		local which = require("which-key")
+		which.setup()
+		which.add({ group = "Code", lhs = "<leader>c" })
+		which.add({ group = "Session", lhs = "<leader>q" })
 	end,
-	opts = {
-		-- your configuration comes here
-		-- or leave it empty to use the default settings
-		-- refer to the configuration section below
-	},
 }

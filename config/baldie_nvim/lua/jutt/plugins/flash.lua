@@ -1,6 +1,5 @@
 return {
 	"folke/flash.nvim",
-	lazy = false,
 	event = "VeryLazy",
 	vscode = true,
 	opts = {},

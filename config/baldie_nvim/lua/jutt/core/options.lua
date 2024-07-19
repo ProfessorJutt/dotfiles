@@ -1,9 +1,13 @@
 local opt = vim.opt
 local lsp = vim.lsp
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- line numbers
 opt.relativenumber = true
 opt.number = true
+opt.cursorline = false
 
 -- line wrapping
 opt.wrap = false
@@ -11,6 +15,7 @@ opt.wrap = false
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
+opt.hlsearch = true
 
 -- cursor line
 opt.cursorline = true
@@ -37,9 +42,10 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.swapfile = true
+opt.showmode = false
 
--- disable mode
--- opt.showmode = false
+-- Whichkey timeout
+opt.timeoutlen = 300
 
 -- stuff from lazy
 opt.grepprg = "rg --vimgrep"
@@ -52,3 +58,5 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full"
 opt.expandtab = true
+opt.breakindent = true
+

@@ -1,6 +1,5 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	lazy = false,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 		"f-person/git-blame.nvim",
@@ -34,24 +33,6 @@ return {
 						color = { fg = "#ff9e64" },
 					},
 					{ "filetype" },
-					{
-						"diff",
-						symbols = {
-							added = '"',
-							modified = '"',
-							removed = '"',
-						},
-						source = function()
-							local gitsigns = vim.b.gitsigns_status_dict
-							if gitsigns then
-								return {
-									added = '"',
-									modified = '"',
-									removed = '"',
-								}
-							end
-						end,
-					},
 				},
 			},
 		})
