@@ -1,11 +1,11 @@
 return {
-  {
-    "catppuccin/nvim",
+	{
+		"catppuccin/nvim",
 		priority = 1000,
 		config = function()
 			-- vim.cmd([[colorscheme catppuccin]])
 		end,
-  },
+	},
 	{
 		"rmehri01/onenord.nvim",
 		name = "onenord",
@@ -14,18 +14,26 @@ return {
 			-- vim.cmd([[colorscheme onenord]])
 		end,
 	},
-  {
-    "rebelot/kanagawa.nvim",
+	{
+		"rebelot/kanagawa.nvim",
 		priority = 1000,
 		config = function()
 			-- vim.cmd([[colorscheme kanagawa]])
 		end,
-  },
-  {
-    "EdenEast/nightfox.nvim",
+	},
+	{
+		"EdenEast/nightfox.nvim",
 		priority = 1000,
 		config = function()
+			require("nightfox").setup({
+				palettes = {
+					carbonfox = {
+						sel0 = "#655175",
+					},
+				},
+			})
+
 			vim.cmd([[colorscheme carbonfox]])
 		end,
-  },
+	},
 }
