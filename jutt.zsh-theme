@@ -5,7 +5,7 @@ function theme_precmd {
   PR_PWDLEN=""
 
   local promptsize=${#${(%):---(%n)---()--}}
-  local pwdsize=${#${(%):-%~}}
+  local pwdsize=${#${(%):-%~ 󱍢}}
 
   # Truncate the path if it's too long.
   if (( promptsize + rubypromptsize + pwdsize > TERMWIDTH )); then
@@ -78,44 +78,24 @@ else
   PR_URCORNER="${PR_SHIFT_IN}${altchar[k]:--}${PR_SHIFT_OUT}"
 fi
 
-# Decide if we need to set titlebar text.
-case $TERM in
-  xterm*)
-    PR_TITLEBAR=$'%{\e]0;%(!.-=*[ROOT]*=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\a%}'
-    ;;
-  screen)
-    PR_TITLEBAR=$'%{\e_screen \005 (\005t) | %(!.-=[ROOT]=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\e\\%}'
-    ;;
-  *)
-    PR_TITLEBAR=""
-    ;;
-esac
-
-# Decide whether to set a screen title
-if [[ "$TERM" = "screen" ]]; then
-  PR_STITLE=$'%{\ekzsh\e\\%}'
-else
-  PR_STITLE=""
-fi
-
 # Finally, the prompt.
 PROMPT='%a
 ${PR_SET_CHARSET}${PR_STITLE}${(e)PR_TITLEBAR}\
-${PR_GREY}${PR_ULCORNER}${PR_HBAR}${PR_GREY}(\
+${PR_GREY}${PR_ULCORNER}${PR_HBAR}${PR_GREY} \
 ${PR_BLUE}%${PR_PWDLEN}<...<%~%<<\
-${PR_GREY})${PR_GREY}${PR_HBAR}${PR_HBAR}${(e)PR_FILLBAR}${PR_HBAR}${PR_GREY}(\
-${PR_GREY}%(!.%SROOT%s.%n)${PR_GREY}\
-${PR_GREY})${PR_GREY}${PR_HBAR}${PR_URCORNER}\
+ ${PR_GREY}${PR_HBAR}${PR_HBAR}${(e)PR_FILLBAR}${PR_HBAR} \
+${PR_MAGENTA}%(!.%SROOT%s.%n)${PR_YELLOW} 󰣙${PR_GREY} \
+${PR_GREY}${PR_HBAR}${PR_URCORNER}\
 
 ${PR_GREY}${PR_LLCORNER}${PR_HBAR}\
 ${PR_YELLOW}\
 ${PR_LIGHT_BLUE}%{$reset_color%}$(git_prompt_info)$(git_prompt_status)${PR_GREY}\
-${PR_YELLOW}>${PR_NO_COLOUR} '
+${PR_YELLOW}󱍢${PR_NO_COLOUR} '
 
 # display exitcode on the right when > 0
 return_code="%(?..%{$fg[red]%}%? ↵ %{$reset_color%})"
 RPROMPT=' $return_code${PR_GREY}${PR_HBAR}${PR_GREY}\
-${PR_BLUE}(${PR_CYAN}%D{%H:%M}${PR_GREY}%D{.%S}${PR_BLUE})${PR_GREY}${PR_HBAR}${PR_GREY}${PR_LRCORNER}${PR_NO_COLOUR}'
+${PR_CYAN} %D{%H:%M}${PR_BLUE}%D{.%S} ${PR_GREY}${PR_HBAR}${PR_GREY}${PR_LRCORNER}${PR_NO_COLOUR}'
 
 PS2='${PR_GREY}${PR_HBAR}\
 ${PR_BLUE}${PR_HBAR}(\

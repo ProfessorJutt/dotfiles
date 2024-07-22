@@ -31,9 +31,12 @@ return {
 						sel0 = "#655175",
 					},
 				},
+				options = {
+					transparent = true,
+				},
 			})
 
-			vim.cmd([[colorscheme carbonfox]])
+			vim.cmd("colorscheme carbonfox")
 		end,
 	},
 }

@@ -38,7 +38,9 @@ colors:
   # Default colors
   primary:
     #background: "0x24283b"
-    background: "0x151929"
+    background: "0x100b17"
+
+    # background: "0x151929"
     foreground: "0xc0caf5"
 
   # Normal colors
@@ -73,10 +75,10 @@ scrolling:
 
 font:
   normal:
-    family: "Monofur Nerd Font Mono"
-    style: Regular
+   family: "Monofur Nerd Font Mono"
+   style: Regular
 
-  size: 16
+  size: 17
 
   offset:
     x: 0
