@@ -4,6 +4,14 @@ local lsp = vim.lsp
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Indention
+opt.smartindent = true
+opt.autoindent = true
+opt.cindent = true
+
+opt.smartcase = true
+opt.cmdheight = 0
+
 -- line numbers
 opt.relativenumber = true
 opt.number = true
@@ -59,4 +67,3 @@ opt.virtualedit = "block" -- Allow cursor to move where there is no text in visu
 opt.wildmode = "longest:full,full"
 opt.expandtab = true
 opt.breakindent = true
-

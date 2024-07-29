@@ -19,12 +19,15 @@ return {
 				disabled_filetypes = { statusline = { "dashboard", "alpha", "starter", "neo-tree" } },
 			},
 			sections = {
-				lualine_a = { {
-					"mode",
-					fmt = function(str)
-						return str:sub(1, 1)
-					end,
-				} },
+				lualine_a = {
+					{
+						"mode",
+						fmt = function(str)
+							return str:sub(1, 1)
+						end,
+					},
+				},
+				lualine_b = { "branch" },
 				lualine_c = { { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available } },
 				lualine_x = {
 					{
@@ -33,6 +36,15 @@ return {
 						color = { fg = "#ff9e64" },
 					},
 					{ "filetype" },
+				},
+				lualine_y = {
+					function()
+						local reg = vim.fn.reg_recording()
+						if reg == "" then
+							return ""
+						end
+						return "recording to " .. reg
+					end,
 				},
 			},
 		})

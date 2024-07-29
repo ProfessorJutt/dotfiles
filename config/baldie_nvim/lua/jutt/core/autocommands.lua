@@ -27,6 +27,15 @@ api.nvim_create_autocmd("ModeChanged", {
 	end,
 })
 
+-- Refresh Lualine for macros
+api.nvim_create_autocmd("RecordingEnter", {
+	callback = function()
+		require("lualine").refresh({
+			place = { "statusline" },
+		})
+	end,
+})
+
 -- Highlight them yankies
 api.nvim_create_autocmd("TextYankPost", {
 	group = augroup("highlight_yank"),
