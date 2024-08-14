@@ -1,7 +1,9 @@
 return {
-    'echasnovski/mini.nvim',
-    config = function()
-      require('mini.ai').setup { n_lines = 500 }
-      require('mini.surround').setup()
-    end,
+	"echasnovski/mini.nvim",
+	config = function()
+		require("mini.comment").setup()
+		require("mini.ai").setup({ n_lines = 500 })
+		require("mini.surround").setup()
+		require("mini.pairs").setup()
+	end,
 }
