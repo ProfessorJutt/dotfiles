@@ -28,6 +28,13 @@ opt.shiftround = true
 opt.shiftwidth = 2
 opt.copyindent = true
 
+-- folds
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldtext = "Doink"
+opt.fillchars:append("fold: ")
+opt.foldlevelstart = 99
+
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
