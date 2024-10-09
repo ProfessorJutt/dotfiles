@@ -30,7 +30,6 @@ return {
 		},
 	},
 	config = function()
-		print("test")
 		require("ibl").setup()
 	end,
 }
