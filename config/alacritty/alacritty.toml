@@ -1,0 +1,93 @@
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "v"
+mods = "Alt|Shift|Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "c"
+mods = "Alt|Shift|Control"
+
+[general]
+live_config_reload = true
+working_directory = "None"
+
+[font]
+size = 16
+
+[font.normal]
+family = "Monofur Nerd Font Mono"
+style = "Regular"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ''',│`|:"' ()[]{}<>'''
+
+[window]
+opacity = 1 
+startup_mode = "Maximized"
+
+[mouse]
+bindings = [
+{ mouse = "Right", mods = "Control", action = "Paste" },
+]
+
+[window.padding]
+x = 10
+y = 0
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+# Default colors
+[colors.primary]
+background = '#000000'
+foreground = '#C7C7C7'
+
+[colors.cursor]
+text    = '#FFFEFF'
+cursor  = '#FFB472'
+
+[colors.normal]
+black    = '#616161'
+red      = '#FF8272'
+green    = '#B4FA72'
+yellow   = '#FEFDC2'
+blue     = '#A5D5FE'
+magenta  = '#FF8FFD'
+cyan     = '#D0D1FE'
+white    = '#F1F1F1'
+
+[colors.bright]
+black    = '#8E8E8E'
+red      = '#FFC4BD'
+green    = '#D6FCB9'
+yellow   = '#FEFDD5'
+blue     = '#C1E3FE'
+magenta  = '#FFB1FE'
+cyan     = '#E5E6FE'
+white    = '#FFFEFF'
