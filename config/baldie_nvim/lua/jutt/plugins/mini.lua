@@ -7,6 +7,7 @@ return {
 		require("mini.cursorword").setup()
 		require("mini.pairs").setup()
 		require("mini.jump2d").setup()
+		require("mini.icons").setup()
 
 		vim.api.nvim_set_hl(0, "MiniCursorword", { underline = true })
 		vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { underline = true })
