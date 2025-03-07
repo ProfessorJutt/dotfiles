@@ -1,41 +1,49 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=100000
+setopt autocd beep extendedglob
 
-export ZSH="$HOME/.oh-my-zsh"
+# User Binary Directory
+export BIN_DIR="$HOME/.local/bin"
+export PATH="$BIN_DIR:$PATH"
 
-ZSH_THEME="jutt"
+# Vimmy
+bindkey -v
+# bindkey '^R' history-incremental-search-backward
 
-plugins=(git)
+# Setup Starship / Funky sourcing fix..
+type starship_zle-keymap-select >/dev/null || \
+{
+  eval "$(starship init zsh)"
+}
 
-source $ZSH/oh-my-zsh.sh
+# Setup Fzf
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target,.steam,Games
+  --preview 'tree -C {}'"
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+source <(fzf --zsh)
 
-# Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# The following lines were added by compinstall
+zstyle :compinstall filename "$HOME/.zshrc"
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 
 # fnm
-FNM_PATH="/home/jutt/.local/share/fnm"
+FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
+  export PATH="$HOME/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-alias zconf="nvim ~/.zshrc"
-alias src="source ~/.zshrc"
-alias l="eza -l --color=always --icons=always --no-time --no-permissions --no-user --no-filesize"
-alias ls="eza -l --color=always --icons=always --no-time --no-permissions --no-user --no-filesize"
-alias la="eza -l --color=always --icons=always --no-time --no-permissions --no-user -a --no-filesize"
-alias lsa="eza -l --color=always --icons=always --no-time --no-permissions --no-user -a --no-filesize"
+# Aliastown
+alias zconf="nvim $HOME/.zshrc"
+alias src="source $HOME/.zshrc"
 
+alias l="eza -l --octal-permissions --color=always --icons=always --no-time --no-permissions --no-user --no-filesize --git"
+alias ls="eza -l --octal-permissions --color=always --icons=always --no-time --no-permissions --no-user --no-filesize"
+alias la="eza -l --octal-permissions --color=always --icons=always --no-time --no-permissions --no-user -a --no-filesize"
+alias lsa="eza -l --octal-permissions --color=always --icons=always -a --no-permissions"
