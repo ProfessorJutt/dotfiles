@@ -18,8 +18,11 @@ return {
 			beacon = {
 				enable = false,
 			},
-			lightBulb = {
+			lightbulb = {
 				enable = false,
+				enable_in_insert = false,
+				sign = false,
+				virtual_text = false,
 			},
 
 			-- ui = {

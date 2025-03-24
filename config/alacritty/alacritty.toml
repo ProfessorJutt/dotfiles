@@ -4,9 +4,14 @@ key = "V"
 mods = "Control"
 
 [[keyboard.bindings]]
-action = "SpawnNewInstance"
+action = "CreateNewWindow"
 key = "N"
 mods = "Super"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Shift|Super"
 
 [[keyboard.bindings]]
 action = "IncreaseFontSize"
@@ -23,11 +28,6 @@ action = "ToggleViMode"
 key = "v"
 mods = "Alt|Shift|Control"
 
-[[keyboard.bindings]]
-action = "ScrollPageUp"
-key = "c"
-mods = "Alt|Shift|Control"
-
 [general]
 live_config_reload = true
 working_directory = "None"
@@ -41,7 +41,7 @@ style = "Regular"
 
 [font.offset]
 x = 0
-y = 1
+y = 0
 
 [scrolling]
 history = 10000
@@ -49,19 +49,21 @@ multiplier = 3
 
 [selection]
 save_to_clipboard = true
-semantic_escape_chars = ''',│`|:"' ()[]{}<>'''
-
-[window]
-opacity = 1 
-startup_mode = "Maximized"
 
 [mouse]
 bindings = [
 { mouse = "Right", mods = "Control", action = "Paste" },
 ]
 
+[window]
+decorations = "Transparent"
+opacity = 0.55 
+blur = true
+dynamic_padding = true
+startup_mode = "Maximized"
+
 [window.padding]
-x = 10
+x = 0
 y = 0
 
 [colors]
