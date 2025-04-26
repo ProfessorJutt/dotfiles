@@ -1,9 +1,25 @@
 return {
 	"neovim/nvim-lspconfig",
-	dependencies = { "saghen/blink.cmp" },
-
+	dependencies = {
+		"saghen/blink.cmp",
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		{ "folke/neodev.nvim", opts = {} },
+	},
+	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		servers = {
+			bashls = {},
+			cssls = {},
+			docker_compose_language_service = {},
+			dockerls = {},
+			gopls = {},
+			html = {},
+			lua_ls = {},
+			tailwindcss = {},
+			terraformls = {},
+			yamlls = {},
+			ruff = {},
 			basedpyright = {
 				settings = {
 					basedpyright = {
@@ -27,6 +43,47 @@ return {
 	},
 	config = function(_, opts)
 		local lspconfig = require("lspconfig")
+		local mason_lspconfig = require("mason-lspconfig")
+
+		mason_lspconfig.setup({
+			ensure_installed = {
+				"basedpyright",
+				"bashls",
+				"cssls",
+				"docker_compose_language_service",
+				"dockerls",
+				"emmet_language_server",
+				"gopls",
+				"html",
+				"lua_ls",
+				"ruff",
+				"tailwindcss",
+				"terraformls",
+				"yamlls",
+			},
+		})
+
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+			callback = function(ev)
+				local map = function(keys, func, desc, mode)
+					mode = mode or "n"
+					vim.keymap.set(mode, keys, func, { buffer = ev.buf, desc = "LSP: " .. desc })
+				end
+
+				local telescope = require("telescope.builtin")
+
+				map("gR", telescope.lsp_references, "Show references")
+				map("gD", vim.lsp.buf.declaration, "Go to declaration")
+				map("gd", telescope.lsp_definitions, "Show definitions")
+				map("gi", telescope.lsp_implementations, "Show implementations")
+				map("gt", telescope.lsp_type_definitions, "Show type definitions")
+				-- map("K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
+				map("<leader>ca", vim.lsp.buf.code_action, "See available code actions")
+				map("<leader>rn", vim.lsp.buf.rename, "Smart rename")
+				map("<leader>d", vim.diagnostic.open_float, "Show line diagnostics")
+			end,
+		})
 
 		for server, config in pairs(opts.servers) do
 			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
