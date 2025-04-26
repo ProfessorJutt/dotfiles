@@ -2,8 +2,6 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"saghen/blink.cmp",
-		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	event = { "BufReadPre", "BufNewFile" },
@@ -43,25 +41,6 @@ return {
 	},
 	config = function(_, opts)
 		local lspconfig = require("lspconfig")
-		local mason_lspconfig = require("mason-lspconfig")
-
-		mason_lspconfig.setup({
-			ensure_installed = {
-				"basedpyright",
-				"bashls",
-				"cssls",
-				"docker_compose_language_service",
-				"dockerls",
-				"emmet_language_server",
-				"gopls",
-				"html",
-				"lua_ls",
-				"ruff",
-				"tailwindcss",
-				"terraformls",
-				"yamlls",
-			},
-		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),

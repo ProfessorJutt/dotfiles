@@ -2,10 +2,30 @@ return {
 	"williamboman/mason.nvim",
 	dependencies = {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"williamboman/mason-lspconfig.nvim",
 	},
 	config = function()
 		local mason = require("mason")
 		local mason_tool_installer = require("mason-tool-installer")
+		local mason_lspconfig = require("mason-lspconfig")
+
+		mason_lspconfig.setup({
+			ensure_installed = {
+				"basedpyright",
+				"bashls",
+				"cssls",
+				"docker_compose_language_service",
+				"dockerls",
+				"emmet_language_server",
+				"gopls",
+				"html",
+				"lua_ls",
+				"ruff",
+				"tailwindcss",
+				"terraformls",
+				"yamlls",
+			},
+		})
 
 		mason.setup({
 			ui = {
