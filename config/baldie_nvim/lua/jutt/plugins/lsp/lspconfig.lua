@@ -7,6 +7,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		servers = {
+		  vtsls = {},
 			bashls = {},
 			cssls = {},
 			docker_compose_language_service = {},
@@ -60,7 +61,7 @@ return {
 				-- map("K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
 				map("<leader>ca", vim.lsp.buf.code_action, "See available code actions")
 				map("<leader>rn", vim.lsp.buf.rename, "Smart rename")
-				map("<leader>d", vim.diagnostic.open_float, "Show line diagnostics")
+				-- map("<leader>d", vim.diagnostic.open_float, "Show line diagnostics")
 			end,
 		})
 

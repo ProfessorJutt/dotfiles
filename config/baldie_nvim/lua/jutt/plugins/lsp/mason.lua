@@ -11,6 +11,7 @@ return {
 
 		mason_lspconfig.setup({
 			ensure_installed = {
+			  "vtsls",
 				"basedpyright",
 				"bashls",
 				"cssls",
