@@ -13,20 +13,6 @@ api.nvim_create_autocmd("BufEnter", {
 	desc = "Disable New Line Comment",
 })
 
--- Snippets be eating tab keys like they cookies.
--- api.nvim_create_autocmd("ModeChanged", {
--- 	pattern = "*",
--- 	callback = function()
--- 		if
--- 			((vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n") or vim.v.event.old_mode == "i")
--- 			and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
--- 			and not require("luasnip").session.jump_active
--- 		then
--- 			require("luasnip").unlink_current()
--- 		end
--- 	end,
--- })
-
 -- Refresh Lualine for macros
 api.nvim_create_autocmd("RecordingEnter", {
 	callback = function()

@@ -8,25 +8,19 @@ vim.g.maplocalleader = " "
 opt.smartindent = true
 opt.autoindent = true
 opt.cindent = true
-
-opt.smartcase = true
-opt.cmdheight = 0
-
--- line numbers
-opt.relativenumber = true
-opt.number = true
-opt.cursorline = false
-
--- line wrapping
-opt.wrap = false
-
--- indention
-opt.smartindent = true
 opt.expandtab = true
 opt.tabstop = 2
 opt.shiftround = true
 opt.shiftwidth = 2
 opt.copyindent = true
+
+-- line numbers
+opt.relativenumber = true
+opt.number = true
+opt.cursorline = true 
+
+-- line wrapping
+opt.wrap = false
 
 -- folds
 opt.foldmethod = "expr"
@@ -40,9 +34,6 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
 
--- cursor line
-opt.cursorline = true
-
 -- ui
 opt.termguicolors = true
 opt.background = "dark"
@@ -52,8 +43,8 @@ opt.cmdheight = 0
 opt.mouse = "a"
 
 -- pretty hinteroos
-lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+lsp.handlers["textDocument/hover"] = vim.lsp.buf.hover({ border = "rounded" })
+lsp.handlers["textDocument/signatureHelp"] = vim.lsp.buf.signature_help({ border = "rounded" })
 
 -- backspace
 opt.backspace = "indent,eol,start"
