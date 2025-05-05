@@ -1,5 +1,5 @@
 return {
 	"nvim-lua/plenary.nvim",
 	"christoomey/vim-tmux-navigator",
-	-- "tpope/vim-sleuth",
+	"tpope/vim-sleuth",
 }
