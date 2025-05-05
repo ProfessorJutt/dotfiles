@@ -3,6 +3,10 @@ return {
 		"catppuccin/nvim",
 		priority = 1000,
 		config = function()
+			require("catppuccin").setup({
+				transparent_background = true,
+				show_end_of_buffer = true,
+			})
 			-- vim.cmd([[colorscheme catppuccin]])
 		end,
 	},
@@ -28,11 +32,15 @@ return {
 			require("nightfox").setup({
 				palettes = {
 					carbonfox = {
-						sel0 = "#655175",
+						sel0 = "#3e4a5b",
+						sel1 = "#4f6074",
 					},
 				},
 				options = {
 					transparent = true,
+					styles = {
+						comments = "italic",
+					},
 				},
 			})
 
