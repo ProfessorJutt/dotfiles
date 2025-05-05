@@ -41,7 +41,7 @@ return {
 					function()
 						local reg = vim.fn.reg_recording()
 						if reg == "" then
-							return ""
+							return os.date("%I:%M:%S")
 						end
 						return "recording to " .. reg
 					end,
