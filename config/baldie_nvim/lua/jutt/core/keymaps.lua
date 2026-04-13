@@ -20,3 +20,13 @@ keymap.set("v", "<Tab>", ">gv")
 
 -- clear them dummmm search highlights
 keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Jump diagnostics
+keymap.set("n", "<leader>d", function()
+	vim.diagnostic.jump({
+		count = 1,
+		on_jump = function()
+			vim.diagnostic.open_float()
+		end,
+	})
+end, { desc = "Jump to next diagnostic" })

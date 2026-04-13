@@ -9,15 +9,17 @@ opt.smartindent = true
 opt.autoindent = true
 opt.cindent = true
 opt.expandtab = true
-opt.tabstop = 2
 opt.shiftround = true
-opt.shiftwidth = 2
 opt.copyindent = true
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.ts = 2
+opt.sw = 2
 
 -- line numbers
 opt.relativenumber = true
 opt.number = true
-opt.cursorline = true 
+opt.cursorline = true
 
 -- line wrapping
 opt.wrap = false
