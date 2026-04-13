@@ -25,6 +25,9 @@ export FZF_ALT_C_OPTS="
 
 source <(fzf --zsh)
 
+# SSH - Arch
+# export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # The following lines were added by compinstall
 zstyle :compinstall filename "$HOME/.zshrc"
 
@@ -39,11 +42,25 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
+# FZF Nav Jazz
+op() {
+  local base="${1:-$HOME/projects}"
+  local dir
+
+  [[ "$base" == "~"* ]] && base="${base/\-/$HOME}"
+
+  dir="$(
+    find "$base" -mindepth 1 -maxdepth 1 -type d \
+      2>/dev/null \
+    | sed "s|^$base/||" \
+    | fzf --height 40% --layout reverse --prompt='Where yah goin? -> '
+  )" || return
+  
+  [[ -n "$dir" ]] && cd -- "$base/$dir"
+}
+
+alias o='op "$PWD"'
+
 # Aliastown
 alias zconf="nvim $HOME/.zshrc"
 alias src="source $HOME/.zshrc"
-
-alias l="eza -l --octal-permissions --color=always --icons=always --no-time --no-permissions --no-user --no-filesize --git"
-alias ls="eza -l --octal-permissions --color=always --icons=always --no-time --no-permissions --no-user --no-filesize"
-alias la="eza -l --octal-permissions --color=always --icons=always --no-time --no-permissions --no-user -a --no-filesize"
-alias lsa="eza -l --octal-permissions --color=always --icons=always -a --no-permissions"
